@@ -1,0 +1,130 @@
+note mesu
+
+
+    Log in to the login node,
+    Send your data and your script,
+    Prepare your environment by loading the necessary module(s),
+    Create a SLURM submission script,
+    Submit your job using SLURM,
+    Monitor your job,
+    Retrieve your results.
+
+max time limit : 
+#SBATCH --time=4-03:20:10
+
+1gpu et 8 cpu : 
+sbatch --gpu=1 -n 8 myjob.sh
+
+
+commands : 
+create file :
+touch
+
+copy (-r for directory) :
+cp file.txt /path/to/destination/ 
+
+Move or rename files or directories : 
+mv file.txt /path/to/destination/
+mv file.txt newfile.txt
+
+remove : 
+rm ou rm -r
+
+display content : 
+cat file.txt
+
+Display page by page :
+less file.txt
+
+Text editor :  
+nano 
+
+Search for specific text in file : 
+grep "text" file.txt
+
+
+SSH : 
+ssh-keygen (/home/pa/.ssh/id_ed25519)
+ssh-copy-id monceapa@login.mesu.sorbonne-universite.fr
+ssh monceapa@login.mesu.sorbonne-universite.fr
+
+
+Transfer files to/from MCMeSU Supercomputer : 
+scp file1 file2 file3 your-username@login.mesu.sorbonne-universite.fr:~/subdirectory/
+scp your-username@login.mesu.sorbonne-universite.fr:~/subdirectory/filename .
+scp -r local_subdirectory/ your-username@login.mesu.sorbonne-universite.fr:~/subdirectory/
+
+
+Data Management : 
+HOME : $HOME
+    Job submission scripts ;
+    Personal configuration files (e.g., .bashrc, .profile) ;
+    Source code for applications.
+    
+SCRATCH : $SCRATCH    
+    Intermediate data from simulations or analyses.
+    Temporary files and job outputs.
+    Results not yet saved elsewhere.
+
+STORE : $STORE
+    Final project results.
+    Raw data collected for future analysis.
+    Backups of code and configurations.
+
+Moving data to STORE : 
+cd "$STORE"
+mkdir backup-scratch
+cd backup-scratch
+rsync -arv --progress "$SCRATCH/mydata/" .
+cd "$SCRATCH"
+rm -rf mydata
+
+Data monitoring : 
+du -hs $SCRATCH
+
+
+Software Management  : 
+module avail
+module load module_name
+module list
+module unload module_name
+module purge
+
+
+
+Job submission : 
+job script : 
+- the header in which you specify the job requirements (execution time, number of CPU cores to use, memory requirements…) in the form of Slurm directives.
+- the body in which you will write the commands to load specific software, define environment variables, and run your job.
+https://sacado.sorbonne-universite.fr/documentation-mcmesu/guide/beginner/submitting-a-job
+job script generator : 
+https://sacado.sorbonne-universite.fr/documentation-mcmesu/guide/beginner/script-generator/
+
+
+Submit your script/job : 
+sbatch [path/to/your/script]
+
+Monitor your jobs : 
+squeue
+squeue -u $USER
+myqueue
+scontrol show jobid
+
+
+Deleting or stopping a job :
+scancel <jobID>
+
+
+
+MPI (Message Passing Interface) : 
+https://sacado.sorbonne-universite.fr/documentation-mcmesu/mpi_tutorial/introduction
+
+
+virtual env : 
+conda init
+conda create -p /path/to/your/new/env
+source activate /path/to/your/new/env
+
+
+
+shellcheck <myJob>

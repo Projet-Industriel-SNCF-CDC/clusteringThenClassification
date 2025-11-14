@@ -1,0 +1,10 @@
+cupy
+fastrlock
+llvmlite
+natsort
+numba
+numpy
+pygame
+PyOpenGL
+PyOpenGL-accelerate
+scipy
