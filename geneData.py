@@ -121,17 +121,21 @@ def main(filepath) :
     print(f"Clusters obstacles exportés: {cluster_counter['obstacle']}")
     print(f"Clusters non-obstacles exportés: {cluster_counter['non_obstacle']}")
 
- project stat
+
 
 if __name__ == "__main__" : 
 
-    main("rails/points_export_421.dat")
+    #main("rails/points_export_421.dat")
+
+    for i in (100, 200) : 
+        file_path = f"rails/points_export_{i}.dat"
+        main(file_path)
 
     # 7. Sauvegarder pour visualisation
-    df_visu = pd.DataFrame(points, columns=['x', 'y', 'z'])
-    df_visu['cluster_label'] = cluster_labels
-    df_visu['obstacle_label'] = obstacle_labels
-    df_visu.to_csv('rails/lidar_points_with_clusters.csv', index=False)
+    #df_visu = pd.DataFrame(points, columns=['x', 'y', 'z'])
+    #df_visu['cluster_label'] = cluster_labels
+    #df_visu['obstacle_label'] = obstacle_labels
+    #df_visu.to_csv('rails/lidar_points_with_clusters.csv', index=False)
 
     # 8. Visualiser
-    visualize_pointcloud_csv('rails/lidar_points_with_clusters.csv')
+    #visualize_pointcloud_csv('rails/lidar_points_with_clusters.csv')
