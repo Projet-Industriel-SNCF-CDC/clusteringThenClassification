@@ -6,3 +6,5 @@ export/*.csv
 
 # VSCode
 .vscode/
+
+venv/

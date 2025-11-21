@@ -121,7 +121,7 @@ def main(filepath) :
     print(f"Clusters obstacles exportés: {cluster_counter['obstacle']}")
     print(f"Clusters non-obstacles exportés: {cluster_counter['non_obstacle']}")
 
-
+ project stat
 
 if __name__ == "__main__" : 
 
