@@ -66,4 +66,8 @@ def visualize_pointcloud_csv(csv_file_path, sample_size=None, label_column='labe
     fig.show()
 
 if __name__ == "__main__":
-    visualize_pointcloud_csv("rails/lidar_points_with_labels.csv")
+    #visualize_pointcloud_csv("rails/lidar_points_with_labels.csv")
+    #visualize_pointcloud_csv("rails/lidar_points_with_labels.csv")
+    visualize_pointcloud_csv("export/obstacle/cluster_0.csv")
+    visualize_pointcloud_csv("export/non_obstacle/cluster_3.csv")
+    visualize_pointcloud_csv("export/non_obstacle/cluster_4.csv")

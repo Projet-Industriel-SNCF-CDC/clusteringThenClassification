@@ -25,15 +25,18 @@ print("="*80)
 
 def load_point_cloud(filepath):
 
-    df_input = pd.read_csv('rails/lidar_points_with_labels.csv')  # Adapter le nom du fichier
+    #df_input = pd.read_csv('rails/lidar_points_with_labels.csv')  # Adapter le nom du fichier
+    df_input = pd.read_csv(filepath) 
     points = df_input[['x', 'y', 'z']].values
     #obstacle_labels = df_input['label'].values  # Colonne contenant les labels (0 ou 1)
     return points
 
 
+
 def load_clouds_from_folder(folder_path):
     """
     Charge tous les nuages de points d'un dossier.
+    Retourne une liste de nuages de points (numpy arrays).
     """
     clouds = []
     supported_extensions = ['*.csv']
@@ -48,6 +51,7 @@ def load_clouds_from_folder(folder_path):
     for filepath in sorted(files):
         try:
             cloud = load_point_cloud(filepath)
+            clouds.append(cloud)               
         except Exception as e:
             print(f" Erreur chargement {os.path.basename(filepath)}: {e}")
     

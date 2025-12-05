@@ -1,0 +1,67 @@
+================================================================================
+CLASSIFICATION DE NUAGES DE POINTS PAR EXTRACTION DE FEATURES GÉOMÉTRIQUES
+================================================================================
+
+1. Génération des nuages de points d'entraînement...
+   - Catégorie 0 (DENSE) : 50 nuages de points
+   - Catégorie 1 (SPARSE) : 50 nuages de points
+
+2. Extraction des features géométriques (entraînement)...
+   ✓ Features extraites : 19
+   ✓ Total échantillons d'entraînement : 100
+
+3. Génération des nuages de points de test...
+   - Catégorie 0 (DENSE) : 20 nuages de points
+   - Catégorie 1 (SPARSE) : 20 nuages de points
+
+4. Extraction des features géométriques (test)...
+   ✓ Total échantillons de test : 40
+
+5. Entraînement du modèle Random Forest...
+   ✓ Modèle entraîné avec 200 arbres
+
+6. Évaluation du modèle...
+
+   PRÉCISION (Accuracy) : 100.00%
+
+   RAPPORT DE CLASSIFICATION :
+              precision    recall  f1-score   support
+
+       DENSE       1.00      1.00      1.00        20
+      SPARSE       1.00      1.00      1.00        20
+
+    accuracy                           1.00        40
+   macro avg       1.00      1.00      1.00        40
+weighted avg       1.00      1.00      1.00        40
+
+
+   MATRICE DE CONFUSION :
+[[20  0]
+ [ 0 20]]
+
+   TOP 10 FEATURES LES PLUS IMPORTANTES :
+   density                   : 0.1200
+   spread                    : 0.0907
+   std_interdist             : 0.0850
+   std_dist_centroid         : 0.0850
+   mean_dist_centroid        : 0.0850
+   bbox_volume               : 0.0700
+   mean_neighbors            : 0.0700
+   var_y                     : 0.0700
+   mean_interdist            : 0.0650
+   max_interdist             : 0.0550
+
+7. Génération des visualisations...
+   ✓ Visualisations sauvegardées : point_cloud_classification.png
+
+8. Test final sur de nouveaux nuages de points...
+
+   PRÉDICTIONS SUR NOUVEAUX NUAGES :
+   ✓ Nuage 1 (180 points) : DENSE (Confiance: 100.0%) - Attendu: DENSE
+   ✓ Nuage 2 (150 points) : SPARSE (Confiance: 95.5%) - Attendu: SPARSE
+   ✓ Nuage 3 (220 points) : DENSE (Confiance: 100.0%) - Attendu: DENSE
+   ✓ Nuage 4 (110 points) : SPARSE (Confiance: 100.0%) - Attendu: SPARSE
+
+================================================================================
+CLASSIFICATION PAR FEATURES GÉOMÉTRIQUES TERMINÉE !
+================================================================================

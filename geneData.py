@@ -10,7 +10,8 @@ import pickle
 os.makedirs('export/obstacle', exist_ok=True)
 os.makedirs('export/non_obstacle', exist_ok=True)
 
-def filter_points(points, labels=None, z_range=(-0.8, 3), y_range=(-2, 2)):
+
+def filter_points(points, labels=None, z_range=(-0.78, 3), y_range=(-2, 2)):
     """
     Keep only points within specified Z and Y ranges.
     Also filters corresponding labels if provided.
@@ -28,6 +29,9 @@ def filter_points(points, labels=None, z_range=(-0.8, 3), y_range=(-2, 2)):
 
 # ==================== MAIN ====================
 
+# 5. Analyser chaque cluster et exporter
+cluster_counter = {'obstacle': 0, 'non_obstacle': 0}
+
 
 def main(filepath) :
 
@@ -43,6 +47,10 @@ def main(filepath) :
     # data est supposé avoir la forme (n, 4) : [x, y, z, label]
     points = data[:, :3].astype(np.float32)   # coordonnées XYZ
     obstacle_labels = data[:, 3].astype(np.int64)      # labels
+
+    if 1 not in obstacle_labels:
+        print("Pas d'obstacles dans ce fichier")
+        return None
 
 
     print(f"Données chargées: {len(points)} points")
@@ -68,9 +76,6 @@ def main(filepath) :
     print(f"\n=== Résultats Clustering ===")
     print(f"Nombre de clusters détectés : {n_clusters}")
     print(f"Points de bruit : {n_noise}")
-
-    # 5. Analyser chaque cluster et exporter
-    cluster_counter = {'obstacle': 0, 'non_obstacle': 0}
 
     for cluster_id in set(cluster_labels):
         if cluster_id == -1:
@@ -127,8 +132,10 @@ if __name__ == "__main__" :
 
     #main("rails/points_export_421.dat")
 
-    for i in (100, 200) : 
-        file_path = f"rails/points_export_{i}.dat"
+    for i in range(2000, 4000) : 
+        #file_path = f"rails/points_export_{i}.dat"
+        file_path = f"/store/rob4sncf/data_witdth_cut_art/points_export_{i}.dat"
+        print(f"######### i = {i} ##############")
         main(file_path)
 
     # 7. Sauvegarder pour visualisation

@@ -1,0 +1,43 @@
+/home/monceapa/clusterThenClass/clusteringThenClassification/venv/lib/python3.9/site-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/home/monceapa/clusterThenClass/clusteringThenClassification/venv/lib/python3.9/site-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+Nombre total de points : 3138
+Dimensions du nuage : (3138, 3)
+Étendue X : [-1.52, 2.00]
+Étendue Y : [1.08, 40.45]
+Étendue Z : [-0.80, 3.00]
+
+=== Résultats ===
+Nombre de clusters détectés : 15
+Points de bruit : 286
+Labels uniques : {np.int64(0), np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6), np.int64(7), np.int64(8), np.int64(9), np.int64(10), np.int64(11), np.int64(12), np.int64(13), np.int64(14), np.int64(-1)}
+Cluster 0 : 80 points
+Exported: export/cluster_0.csv
+Cluster 1 : 52 points
+Exported: export/cluster_1.csv
+Cluster 2 : 101 points
+Exported: export/cluster_2.csv
+Cluster 3 : 60 points
+Exported: export/cluster_3.csv
+Cluster 4 : 84 points
+Exported: export/cluster_4.csv
+Cluster 5 : 1810 points
+Cluster 6 : 83 points
+Exported: export/cluster_6.csv
+Cluster 7 : 59 points
+Exported: export/cluster_7.csv
+Cluster 8 : 43 points
+Exported: export/cluster_8.csv
+Cluster 9 : 17 points
+Exported: export/cluster_9.csv
+Cluster 10 : 26 points
+Exported: export/cluster_10.csv
+Cluster 11 : 153 points
+Exported: export/cluster_11.csv
+Cluster 12 : 99 points
+Exported: export/cluster_12.csv
+Cluster 13 : 110 points
+Exported: export/cluster_13.csv
+Cluster 14 : 75 points
+Exported: export/cluster_14.csv
