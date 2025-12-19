@@ -4,6 +4,7 @@ import pandas as pd
 from visu2 import visualize_pointcloud_csv  # Import the Plotly visualization function
 from visu import visualize_pointcloud_csv1
 import pickle
+import sys
 
 
 
@@ -96,7 +97,8 @@ def filter_points(points, z_range=(-0.78,3), y_range=(-2, 2)): #-0.8
 #point = np.loadtxt('rails/lidar_points_0.0.csv', delimiter=',', skiprows=1)
 
 #file_path = "rails/points_export_421.dat"
-file_path = f"/store/rob4sncf/data_witdth_cut_art/points_export_3600.dat" #3200 #3250 #3600 #1900 3100 4101
+#file_path = f"/store/rob4sncf/data_witdth_cut_art/points_export_{sys.argv[1]}.dat" #3200 #3250 #3600 #1900 3100 4101
+file_path = f"/store/rob4sncf/real_data/points_export_{sys.argv[1]}.dat"
 with open(file_path, 'rb') as f:
     data = pickle.load(f)
 # data est supposé avoir la forme (n, 4) : [x, y, z, label]
@@ -131,8 +133,8 @@ print(f"Étendue Z : [{points[:,2].min():.2f}, {points[:,2].max():.2f}]")
 
 # 2. Apply HDBSCAN clustering
 clusterer = hdbscan.HDBSCAN(
-    min_cluster_size=20,    #10
-    min_samples=40,    #30       # Robustness to noise
+    min_cluster_size=5,    #10 #20
+    min_samples=10,    #30  #40     # Robustness to noise
     metric='euclidean',
     #cluster_selection_epsilon=0.01  # distance max pour fusionner les clusters
 )

@@ -144,11 +144,11 @@ NON_OBSTACLE_FOLDER = "export/non_obstacle"
 # Vérification de l'existence des dossiers
 if not os.path.exists(OBSTACLE_FOLDER):
     os.makedirs(OBSTACLE_FOLDER, exist_ok=True)
-    print(f"   ⚠ Dossier créé (vide): {OBSTACLE_FOLDER}")
+    print(f"Dossier créé (vide): {OBSTACLE_FOLDER}")
 
 if not os.path.exists(NON_OBSTACLE_FOLDER):
     os.makedirs(NON_OBSTACLE_FOLDER, exist_ok=True)
-    print(f"   ⚠ Dossier créé (vide): {NON_OBSTACLE_FOLDER}")
+    print(f"Dossier créé (vide): {NON_OBSTACLE_FOLDER}")
 
 # Chargement des nuages de points
 clouds_obstacle = load_clouds_from_folder(OBSTACLE_FOLDER)
@@ -247,8 +247,9 @@ print("\n5. Entraînement du modèle Random Forest...")
 rf_model = RandomForestClassifier(
     n_estimators=200,
     max_depth=15,
-    #min_samples_split=5,
-    #min_samples_leaf=2,
+    min_samples_split=3, #
+    min_samples_leaf=2, #
+    class_weight="balanced", #
     random_state=42,
     n_jobs=-1
 )

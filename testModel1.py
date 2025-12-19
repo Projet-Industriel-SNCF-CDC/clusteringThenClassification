@@ -12,8 +12,10 @@ from scipy.spatial import ConvexHull, distance_matrix
 # ------------------------------
 #      CHARGEMENT MODELE RF
 # ------------------------------
-model_path = "model_export/random_forest_obstacle_detector.joblib"
-print("[INFO] Chargement du modèle Random Forest...")
+#model_path = "model_export/random_forest_obstacle_detector.joblib"
+model_path = "model_export/histGradBoosting_detector.joblib"
+#print("[INFO] Chargement du modèle Random Forest...")
+print("[INFO] Chargement du modèle Hist grad boosting...")
 
 try:
     rf_model = joblib.load(model_path)
@@ -125,12 +127,23 @@ def filter_points(points, labels=None, z_range=(-0.78, 3), y_range=(-2, 2)):
 # ------------------------------
 #      TRAITEMENT DES FICHIERS
 # ------------------------------
-base_path = "/store/rob4sncf/data_witdth_cut_art"
+#base_path = "/store/rob4sncf/data_witdth_cut_art"
+base_path = "/store/rob4sncf/real_data"
 
 # MESURE TEMPS GLOBAL
 start_time = time.time()
 
-for i in (3250, 3600) : #range(3200, 3201) (3250, 3600) 3100 4100 #(3250, 3600, 3200, 3100, 4100)
+# 3250 : single obstacle
+# 3600 : homme + caillou (obstacle)
+# 3200 : tronc + buisson ? (vraiment pas obstacle ?) 
+# 3100 : branche + buisson ? + caillou
+# 4100 : homme + branche
+
+# 1750 (feuillage branche) / 2877 (bruit/herbe au sol) / 4130 (grande plante) / 4000 (humain + buche) / 
+# 3900 (roche + herbe plate) / 3700 (buche + parterre) / 3300 (arbre)
+#(1750, 2877, 4130, 4000, 3900, 3700, 3300)
+
+for i in (405, 406, 407, 408, 409, 410): #range(3200, 3201) (3250, 3600) 3100 4100 #(3250, 3600, 3200, 3100, 4100)
     file_path = os.path.join(base_path, f"points_export_{i}.dat")
 
     if not os.path.exists(file_path):

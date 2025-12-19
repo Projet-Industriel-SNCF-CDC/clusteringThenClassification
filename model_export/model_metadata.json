@@ -33,8 +33,8 @@
     "hyperparameters": {
         "n_estimators": 200,
         "max_depth": 15,
-        "min_samples_split": 2,
-        "min_samples_leaf": 1,
+        "min_samples_split": 3,
+        "min_samples_leaf": 2,
         "random_state": 42
     },
     "training_info": {
@@ -42,27 +42,27 @@
         "n_test_samples": 1939,
         "train_obstacle_count": 1848,
         "train_non_obstacle_count": 5904,
-        "test_accuracy": 0.9535843218153688
+        "test_accuracy": 0.9520371325425477
     },
     "feature_importance": {
-        "density": 0.05649929668861562,
-        "hull_area": 0.026334200183427286,
-        "mean_interdist": 0.03201491434455883,
-        "std_interdist": 0.019899238090937736,
-        "min_interdist": 0.06268225822202007,
-        "max_interdist": 0.014683543483299462,
-        "mean_dist_centroid": 0.039664908683840754,
-        "std_dist_centroid": 0.018724111172031294,
-        "var_x": 0.020926033392535227,
-        "var_y": 0.05726701956514833,
-        "var_z": 0.14136033981376503,
-        "bbox_volume": 0.03587789260049288,
-        "bbox_ratio_xy": 0.03300524875271048,
-        "bbox_ratio_xz": 0.05143394873893151,
-        "bbox_ratio_yz": 0.23637761347953318,
-        "mean_neighbors": 0.05092607674915565,
-        "std_neighbors": 0.03588581238984789,
-        "spread": 0.013341274364430274,
-        "n_points": 0.05309626928471865
+        "density": 0.061085855576003774,
+        "hull_area": 0.030131005620299675,
+        "mean_interdist": 0.029546456061393025,
+        "std_interdist": 0.017737692069238656,
+        "min_interdist": 0.06376137776374054,
+        "max_interdist": 0.01811378997016095,
+        "mean_dist_centroid": 0.033884990843782894,
+        "std_dist_centroid": 0.018209639454322253,
+        "var_x": 0.022280888890915295,
+        "var_y": 0.0419632731216032,
+        "var_z": 0.1607577078651766,
+        "bbox_volume": 0.04024866343032498,
+        "bbox_ratio_xy": 0.032329115676377286,
+        "bbox_ratio_xz": 0.055607231928800085,
+        "bbox_ratio_yz": 0.2268865029486369,
+        "mean_neighbors": 0.05202616390999679,
+        "std_neighbors": 0.034561869679738656,
+        "spread": 0.016681268033201198,
+        "n_points": 0.04418650715628734
     }
 }
