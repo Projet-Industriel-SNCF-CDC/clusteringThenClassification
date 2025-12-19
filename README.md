@@ -1,7 +1,7 @@
 
 # Clustering then Classification
 
-## Still in process...
+## Still in progress...
 
 ## Dependancies : 
 
@@ -72,13 +72,13 @@ file : training4params.py
 
 ### Utilisation de la pipeline (clustering + classification) sur nouvelles données : 
 
-file : testModel1.py
+file : testModel2.py
 
 - Importe un model de classification
 - Filtre les points dans une zone prédéfinie (celle du passage du véhicule)
 - Clustering avec hdbscan
 - Extraction des caractéristiques géométriques des clusters de points
 - Classification avec le model importé
-- Affiche le résultat (prédiction et vérité)
+- Affiche le résultat (prédiction et vérité) et annalyse : matrice de confusion, F1-score, ...
 
 
