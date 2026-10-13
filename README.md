@@ -1,8 +1,6 @@
 
 # Clustering then Classification
 
-## Still in progress...
-
 ## Dependancies : 
 
 pip install hdbscan numpy matplotlib scikit-learn pandas seaborn tqdm
